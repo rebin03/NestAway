@@ -1,0 +1,33 @@
+# Node.js dependencies
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage/
+
+# dotenv environment variables file
+.env
+
+# Temporary files
+*.tmp
+*.temp
+
+__pycache__/
+
+db.sqlite3
+
+# Property images
+property_images/
+
+# sample data
+flat.json
+pg-hostel.json

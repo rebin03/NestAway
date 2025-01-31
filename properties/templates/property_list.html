@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block main_block %}
+<div class="container mx-auto pt-24 px-4">
+    <h1 class="text-2xl font-bold text-gray-800 mb-4">Find Your Perfect Stay</h1>
+
+    <div class="flex items-center mb-6">
+      <form method="get" class="flex w-full">
+          <input 
+              type="text" 
+              name="search" 
+              value="{{ search_query }}"
+              placeholder="Search by name, address or city..." 
+              class="flex-1 border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-fuchsia-600"
+          >
+          <button type="submit" class="bg-fuchsia-600 hover:bg-fuchsia-700 text-white px-4 py-2 rounded-r-lg flex items-center">
+              <i class="fas fa-search p-2 py-1"></i>
+          </button>
+      </form>
+  </div>
+  
+  {% if search_query %}
+  <div class="mb-6">
+      <p class="text-gray-600">
+          Showing results for "<strong>{{ search_query }}</strong>"
+          <a href="{% url 'property-list' %}" class="text-fuchsia-600 hover:text-fuchsia-700 ml-2">
+              <i class="fas fa-times"></i> Clear search
+          </a>
+      </p>
+  </div>
+  {% endif %}
+
+    <!-- PG & Hostels -->
+    <h2 class="text-xl font-semibold text-gray-800 mb-4">PG & Hostels</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        {% for property in pg_properties %}
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-40 bg-gray-200">
+                {% if property.images.first %}
+                    <img src="{{ property.images.first.image.url }}" class="w-full h-full object-cover" alt="{{ property.title }}">
+                {% endif %}
+            </div>
+            <div class="p-4">
+                <h3 class="text-lg font-bold text-gray-800">{{ property.title }}</h3>
+                <p class="text-sm text-gray-500">{{ property.address }}</p>
+                <p class="text-fuchsia-600 font-bold mt-2">₹{{ property.monthly_rent|floatformat:0 }}/month</p>
+                <button class="mt-4 bg-fuchsia-600 hover:bg-fuchsia-700 text-white px-4 py-2 rounded-lg">View Details</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- PG/Hostel Pagination -->
+    {% if pg_properties.has_other_pages %}
+    <div class="flex justify-center space-x-2 mb-8">
+        {% if pg_properties.has_previous %}
+        <a href="?pg_page={{ pg_properties.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}" 
+          class="px-3 py-1 bg-fuchsia-600 text-white rounded-lg">&laquo;</a>
+        {% endif %}
+        
+        <span class="px-3 py-1">Page {{ pg_properties.number }} of {{ pg_properties.paginator.num_pages }}</span>
+        
+        {% if pg_properties.has_next %}
+        <a href="?pg_page={{ pg_properties.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}" 
+          class="px-3 py-1 bg-fuchsia-600 text-white rounded-lg">&raquo;</a>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Apartments -->
+    <h2 class="text-xl font-semibold text-gray-800 mb-4">Apartments</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for property in flat_properties %}
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-40 bg-gray-200">
+                {% if property.images.first %}
+                    <img src="{{ property.images.first.image.url }}" class="w-full h-full object-cover" alt="{{ property.title }}">
+                {% endif %}
+            </div>
+            <div class="p-4">
+                <h3 class="text-lg font-bold text-gray-800">{{ property.title }}</h3>
+                <p class="text-sm text-gray-500">{{ property.address }}</p>
+                <p class="text-fuchsia-600 font-bold mt-2">₹{{ property.monthly_rent|floatformat:0 }}/month</p>
+                <button class="mt-4 bg-fuchsia-600 hover:bg-fuchsia-700 text-white px-4 py-2 rounded-lg">View Details</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Flat Pagination -->
+    {% if flat_properties.has_other_pages %}
+    <div class="flex justify-center space-x-2 mt-8">
+        {% if flat_properties.has_previous %}
+        <a href="?flat_page={{ flat_properties.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}" 
+          class="px-3 py-1 bg-fuchsia-600 text-white rounded-lg">&laquo;</a>
+        {% endif %}
+        
+        <span class="px-3 py-1">Page {{ flat_properties.number }} of {{ flat_properties.paginator.num_pages }}</span>
+        
+        {% if flat_properties.has_next %}
+        <a href="?flat_page={{ flat_properties.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}" 
+          class="px-3 py-1 bg-fuchsia-600 text-white rounded-lg">&raquo;</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

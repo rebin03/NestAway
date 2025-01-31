@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block main_block %}
+<div class="bg-gradient-to-b from-fuchsia-400 to-fuchsia-300 text-gray-800">
+    <section class="flex flex-col items-center text-center py-24 px-4">
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4">Find Your Perfect Stay with Searchify</h1>
+      <p class="text-lg sm:text-xl text-white mb-6">Discover PGs, Flats, and Messes that feel like home</p>
+      <div class="w-full max-w-md">
+        <!-- <div class="relative flex items-center">
+          <input 
+            type="text" 
+            placeholder="Enter location, property type, or keywords..." 
+            class="w-full p-4 rounded-l-lg border-none outline-none text-gray-800"
+          >
+          <button 
+            class="bg-fuchsia-600 hover:bg-fuchsia-700 text-white px-6 py-4 rounded-r-lg">
+            Search
+          </button>
+        </div> -->
+      </div>
+    </section>
+  
+    <section class="bg-gray-50 py-24 px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8">Why Choose Searchify?</h2>
+      <div class="grid gap-6 sm:gap-8 sm:grid-cols-3 max-w-5xl mx-auto">
+        <div class="text-center p-6 rounded-xl shadow-lg">
+          <div class="text-fuchsia-600 mb-4">
+            <i class="fas fa-search h-12 w-12 mx-auto text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Easy Search</h3>
+          <p class="text-gray-600">Find your ideal accommodation with our powerful search filters</p>
+        </div>
+        <div class="text-center p-6 rounded-xl shadow-lg">
+          <div class="text-fuchsia-600 mb-4">
+            <i class="fas fa-building h-12 w-12 mx-auto text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Verified Properties</h3>
+          <p class="text-gray-600">All properties are verified to ensure quality and safety</p>
+        </div>
+        <div class="text-center p-6 rounded-xl shadow-lg">
+          <div class="text-fuchsia-600 mb-4">
+            <i class="fas fa-clock h-12 w-12 mx-auto text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Quick Process</h3>
+          <p class="text-gray-600">Book your stay quickly with our streamlined process</p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="bg-white py-24 px-4">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4">Ready to Find Your New Home?</h2>
+        <p class="text-gray-600 mb-6 text-lg">Join thousands of happy residents who found their perfect stay with Searchify</p>
+        <a href="{% url 'property-list' %}" class="inline-block bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-semibold py-3 px-6 rounded-lg">Explore Now</a>
+      </div>
+    </section>
+</div>
+{% endblock %}

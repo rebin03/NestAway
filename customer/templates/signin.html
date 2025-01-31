@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Searchify</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+</style>
+<body class="bg-gradient-to-r from-fuchsia-500 to-pink-500 flex justify-center items-center h-screen">
+    <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-md relative">
+        <h2 class="text-3xl font-bold text-gray-700 text-center mb-6">Welcome Back</h2>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="mb-4">
+                <input type="text" name="username" id="id_username" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-fuchsia-400" placeholder="Username">
+            </div>
+            <div class="mb-4">
+                <input type="password" name="password" id="id_password" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-fuchsia-400" placeholder="Password">
+            </div>
+            <button type="submit" class="w-full bg-fuchsia-600 text-white py-3 rounded-lg hover:bg-fuchsia-700 transition">Login</button>
+        </form>
+        <p class="text-sm text-gray-600 text-center mt-4">Don't have an account? <a href="{% url 'signup' %}" class="text-fuchsia-500 hover:underline">Sign up here</a>.</p>
+    </div>
+    <a href="{% url 'admin:login' %}" class="p-1 px-2 bg-violet-500 text-white text-sm rounded-lg mt-4 mr-4 hover:bg-fuchsia-400 absolute top-0 right-0">Admin login</a>
+</body>
+</html>

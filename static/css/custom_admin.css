@@ -1,0 +1,152 @@
+/* Custom Admin CSS with Pink Theme */
+
+/* Header */
+#header {
+    background: linear-gradient(to right, #ae58ff, #E12AFB);
+    color: #fff;
+}
+
+/* Header Links */
+#header a:link, #header a:visited {
+    color: #fff;
+    font-weight: 500;
+}
+
+/* User Tools */
+#user-tools a {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#user-tools a:focus, #user-tools a:hover {
+    border-bottom-color: #fff;
+    color: #fff;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    background: #FFF0F5;
+}
+
+/* Primary Buttons */
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #ED6BFF;
+    color: #fff;
+}
+
+.button:active, input[type=submit]:active, input[type=button]:active,
+.button:focus, input[type=submit]:focus, input[type=button]:focus,
+.button:hover, input[type=submit]:hover, input[type=button]:hover {
+    background: #E12AFB;
+}
+
+/* Submit Row */
+.submit-row a.deletelink {
+    background: #ff4444;
+}
+
+.submit-row a.deletelink:focus,
+.submit-row a.deletelink:hover {
+    background: #ff0000;
+}
+
+/* Links */
+a:link, a:visited {
+    color: #871796;
+}
+
+/* Module Headers */
+.module h2, .module caption, .inline-group h2 {
+    background: #ED6BFF;
+    background: linear-gradient(to right, #ec5dff, #d374ff);
+    color: #fff;
+}
+
+/* Selected Row */
+.row1 {
+    background: #FFF0F5;
+}
+
+/* Calendar & Time */
+.calendar caption, .calendarbox h2 {
+    background: #ED6BFF;
+}
+
+.calendar td a:focus, .timelist a:focus,
+.calendar td a:hover, .timelist a:hover {
+    background: #ED6BFF;
+}
+
+.calendar td.selected a {
+    background: #ED6BFF;
+}
+
+.calendar td.nonday {
+    background: #FFF0F5;
+}
+
+/* Dashboard */
+
+/* List Headers */
+thead th,
+tfoot td {
+    background: #FFF0F5;
+    color: #666;
+}
+
+/* Selected Link in Admin Menu */
+div.breadcrumbs {
+    background: #f39bff;
+    color: #4b4b4b;
+}
+
+/* Message Success */
+.messagelist li.success {
+    background: #ED6BFF;
+    color: #fff;
+}
+
+/* Pagination */
+.paginator a:link, .paginator a:visited {
+    background: #ED6BFF;
+    color: #fff;
+}
+
+.paginator a:hover {
+    background: #E12AFB;
+}
+
+/* Form Help Text */
+.help, p.help, form p.help, div.help, form div.help, div.help li {
+    color: #ED6BFF;
+}
+
+/* Fieldset */
+fieldset.collapsed h2 {
+    background: #ED6BFF;
+}
+
+/* Inline Related */
+.inline-related h3 {
+    background: #ED6BFF;
+    color: #fff;
+}
+
+/* Filter */
+#changelist-filter h2 {
+    background: #ED6BFF;
+    color: #fff;
+}
+
+#changelist-filter li.selected a {
+    color: #ED6BFF;
+}
+
+/* Object Tools */
+.object-tools a:link, .object-tools a:visited {
+    background: #b53ac5;
+    color: #fff;
+}
+
+.object-tools a:focus, .object-tools a:hover {
+    background: #E12AFB;
+}

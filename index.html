@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Listings</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <span class="text-purple-600 text-2xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          </svg>
+        </span>
+        <span class="text-xl font-bold text-gray-800">Searchify</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <div class="container mx-auto pt-24 px-4">
+    <h1 class="text-2xl font-bold text-gray-800 mb-4">Find Your Perfect Stay</h1>
+    <div class="flex items-center mb-6">
+      <input type="text" placeholder="Search by name or location..." class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600">
+      <button class="ml-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2v10" />
+        </svg>
+        Search
+      </button>
+    </div>
+
+    <!-- PG & Hostels -->
+    <h2 class="text-xl font-semibold text-gray-800 mb-4">PG & Hostels</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="h-40 bg-gray-200"></div>
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-800">Comfort PG</h3>
+          <p class="text-sm text-gray-500">MG Road, Bangalore</p>
+          <p class="text-purple-600 font-bold mt-2">₹8000/month</p>
+          <button class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">View Details</button>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="h-40 bg-gray-200"></div>
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-800">Student Haven Hostel</h3>
+          <p class="text-sm text-gray-500">HSR Layout, Bangalore</p>
+          <p class="text-purple-600 font-bold mt-2">₹6000/month</p>
+          <button class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">View Details</button>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="h-40 bg-gray-200"></div>
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-800">Sunshine PG</h3>
+          <p class="text-sm text-gray-500">Koramangala, Bangalore</p>
+          <p class="text-purple-600 font-bold mt-2">₹9000/month</p>
+          <button class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Apartments -->
+    <h2 class="text-xl font-semibold text-gray-800 mb-4">Apartments</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="h-40 bg-gray-200"></div>
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-800">Green View Apartments</h3>
+          <p class="text-sm text-gray-500">Whitefield, Bangalore</p>
+          <p class="text-purple-600 font-bold mt-2">₹15000/month</p>
+          <button class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">View Details</button>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="h-40 bg-gray-200"></div>
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-800">Sky Heights</h3>
+          <p class="text-sm text-gray-500">Electronic City, Bangalore</p>
+          <p class="text-purple-600 font-bold mt-2">₹18000/month</p>
+          <button class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">View Details</button>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="h-40 bg-gray-200"></div>
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-800">Royal Residency</h3>
+          <p class="text-sm text-gray-500">Marathahalli, Bangalore</p>
+          <p class="text-purple-600 font-bold mt-2">₹20000/month</p>
+          <button class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
