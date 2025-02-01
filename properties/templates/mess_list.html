@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block main_block %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h1 class="text-2xl font-bold mb-6">Messes</h1>
+
+    <!-- Search Bar -->
+    <div class="flex gap-4 mb-8">
+        <form method="get" class="flex w-full gap-4">
+            <input 
+                type="text" 
+                name="search"
+                value="{{ search_query }}"
+                placeholder="Search by mess name or city..." 
+                class="flex-1 p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
+            >
+            <button type="submit" class="bg-fuchsia-500 text-white px-6 py-3 rounded-lg hover:bg-fuchsia-600 transition-colors flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+                Search
+            </button>
+        </form>
+    </div>
+
+    {% if search_query %}
+    <div class="mb-6">
+        <p class="text-gray-600">
+            Showing results for "<strong>{{ search_query }}</strong>"
+            <a href="{% url 'mess-list' %}" class="text-fuchsia-600 hover:text-fuchsia-700 ml-2">
+                <i class="fas fa-times"></i> Clear search
+            </a>
+        </p>
+    </div>
+    {% endif %}
+
+    <!-- Mess Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for mess in messes %}
+        <div class="bg-white rounded-lg shadow-sm border border-2 hover:shadow-lg p-6 space-y-4">
+            <div class="flex items-center gap-2 mb-1">
+                <svg class="w-6 h-6 text-fuchsia-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z"/>
+                </svg>
+                <h2 class="text-xl font-bold">{{ mess.name }}</h2>
+            </div>
+            <span class="{% if mess.meal_type == 'VEG' %}text-green-500{% elif mess.meal_type == 'NON_VEG' %}text-red-500{% else %}text-blue-500{% endif %} text-sm font-medium">
+                {{ mess.get_meal_type_display }}
+            </span>
+
+            <div class="space-y-3">
+                <div>
+                    <p class="text-gray-500 text-sm">Location</p>
+                    <p class="text-gray-700">{{ mess.address }}, {{ mess.city }}</p>
+                </div>
+
+                <div class="flex justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">Monthly Rate</p>
+                        <p class="text-gray-700 font-medium">₹{{ mess.monthly_rate|floatformat:0 }}</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm">Daily Rate</p>
+                        <p class="text-gray-700 font-medium">₹{{ mess.daily_rate|floatformat:0 }}</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">Timings</p>
+                        <p class="text-gray-700">{{ mess.opening_time|time:"g:i A" }} - {{ mess.closing_time|time:"g:i A" }}</p>
+                    </div>
+                    {% if mess.is_snacks_available %}
+                    <div class="py-2">
+                        <p class="text-gray-700 rounded-md border-2 border-fuchsia-400 text-sm px-2">Snacks Available</p>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div>
+                    <p class="text-gray-500 text-sm">Contact</p>
+                    <p class="text-gray-700">+91 {{ mess.contact_number }}</p>
+                </div>
+            </div>
+
+            <a href="{% url 'mess-menu-detail' mess.id %}" class="block w-full bg-fuchsia-100 text-fuchsia-600 font-medium py-3 rounded-lg hover:bg-fuchsia-200 transition-colors mt-4 text-center">
+                View Menu
+            </a>
+        </div>
+        {% empty %}
+        <div class="col-span-full text-center py-8">
+            <p class="text-gray-700">No messes found{% if search_query %} for "{{ search_query }}"{% endif %}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if messes.has_other_pages %}
+    <div class="flex justify-center space-x-2 mt-8">
+        {% if messes.has_previous %}
+        <a href="?page={{ messes.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}" 
+           class="px-3 py-1 bg-fuchsia-600 text-white rounded-lg">&laquo;</a>
+        {% endif %}
+        
+        <span class="px-3 py-1">Page {{ messes.number }} of {{ messes.paginator.num_pages }}</span>
+        
+        {% if messes.has_next %}
+        <a href="?page={{ messes.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}" 
+           class="px-3 py-1 bg-fuchsia-600 text-white rounded-lg">&raquo;</a>
+        {% endif %}
+    </div>
+    {% endif %}
+
+
+</div>
+{% endblock %}

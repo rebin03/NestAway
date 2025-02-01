@@ -1,101 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Property Listings</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
 </head>
-<body class="bg-gray-100">
-  <!-- Navbar -->
-  <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="flex items-center space-x-2">
-        <span class="text-purple-600 text-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-          </svg>
-        </span>
-        <span class="text-xl font-bold text-gray-800">Searchify</span>
-      </div>
-    </div>
-  </nav>
+<body class="bg-gray-50 p-4">
+  <div class="max-w-5xl mx-auto">
+    <!-- Back Button -->
+    <a href="#" class="inline-flex items-center text-gray-600 mb-6">
+      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+      </svg>
+      Back to Messes
+    </a>
 
-  <!-- Content -->
-  <div class="container mx-auto pt-24 px-4">
-    <h1 class="text-2xl font-bold text-gray-800 mb-4">Find Your Perfect Stay</h1>
-    <div class="flex items-center mb-6">
-      <input type="text" placeholder="Search by name or location..." class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600">
-      <button class="ml-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2v10" />
+    <!-- Header Card -->
+    <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+      <div class="flex items-center gap-2 mb-6">
+        <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z"/>
         </svg>
-        Search
-      </button>
-    </div>
+        <h1 class="text-2xl font-semibold">Annapoorna Mess</h1>
+      </div>
 
-    <!-- PG & Hostels -->
-    <h2 class="text-xl font-semibold text-gray-800 mb-4">PG & Hostels</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <div class="h-40 bg-gray-200"></div>
-        <div class="p-4">
-          <h3 class="text-lg font-bold text-gray-800">Comfort PG</h3>
-          <p class="text-sm text-gray-500">MG Road, Bangalore</p>
-          <p class="text-purple-600 font-bold mt-2">₹8000/month</p>
-          <button class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">View Details</button>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <h2 class="text-gray-500 mb-1">Location</h2>
+          <p>MG Road, Near Lulu Mall, Kochi</p>
         </div>
-      </div>
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <div class="h-40 bg-gray-200"></div>
-        <div class="p-4">
-          <h3 class="text-lg font-bold text-gray-800">Student Haven Hostel</h3>
-          <p class="text-sm text-gray-500">HSR Layout, Bangalore</p>
-          <p class="text-purple-600 font-bold mt-2">₹6000/month</p>
-          <button class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">View Details</button>
+        <div>
+          <h2 class="text-gray-500 mb-1">Contact</h2>
+          <p>9876543210</p>
         </div>
-      </div>
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <div class="h-40 bg-gray-200"></div>
-        <div class="p-4">
-          <h3 class="text-lg font-bold text-gray-800">Sunshine PG</h3>
-          <p class="text-sm text-gray-500">Koramangala, Bangalore</p>
-          <p class="text-purple-600 font-bold mt-2">₹9000/month</p>
-          <button class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">View Details</button>
+        <div>
+          <h2 class="text-gray-500 mb-1">Timings</h2>
+          <p>7:00 AM - 9:00 PM</p>
         </div>
       </div>
     </div>
 
-    <!-- Apartments -->
-    <h2 class="text-xl font-semibold text-gray-800 mb-4">Apartments</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <div class="h-40 bg-gray-200"></div>
-        <div class="p-4">
-          <h3 class="text-lg font-bold text-gray-800">Green View Apartments</h3>
-          <p class="text-sm text-gray-500">Whitefield, Bangalore</p>
-          <p class="text-purple-600 font-bold mt-2">₹15000/month</p>
-          <button class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">View Details</button>
-        </div>
-      </div>
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <div class="h-40 bg-gray-200"></div>
-        <div class="p-4">
-          <h3 class="text-lg font-bold text-gray-800">Sky Heights</h3>
-          <p class="text-sm text-gray-500">Electronic City, Bangalore</p>
-          <p class="text-purple-600 font-bold mt-2">₹18000/month</p>
-          <button class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">View Details</button>
-        </div>
-      </div>
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <div class="h-40 bg-gray-200"></div>
-        <div class="p-4">
-          <h3 class="text-lg font-bold text-gray-800">Royal Residency</h3>
-          <p class="text-sm text-gray-500">Marathahalli, Bangalore</p>
-          <p class="text-purple-600 font-bold mt-2">₹20000/month</p>
-          <button class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">View Details</button>
-        </div>
-      </div>
+    <!-- Weekly Menu -->
+    <h2 class="text-2xl font-semibold mb-6">Weekly Menu</h2>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full bg-white rounded-lg shadow-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="text-left p-4 text-gray-500">Day</th>
+            <th class="text-left p-4 text-gray-500">Breakfast</th>
+            <th class="text-left p-4 text-gray-500">Lunch</th>
+            <th class="text-left p-4 text-gray-500">Dinner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b">
+            <td class="p-4">Monday</td>
+            <td class="p-4">Idli, Sambar, Chutney, Tea/Coffee</td>
+            <td class="p-4">Rice, Dal, Mixed Veg Curry, Papad, Curd</td>
+            <td class="p-4">Chapati, Paneer Butter Masala, Rice, Pickle</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-4">Tuesday</td>
+            <td class="p-4">Poha, Boiled Eggs, Bread Toast, Tea/Coffee</td>
+            <td class="p-4">Rice, Sambar, Fish Curry, Beans Thoran, Buttermilk</td>
+            <td class="p-4">Parotta, Chicken Curry, Rice, Salad</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-4">Wednesday</td>
+            <td class="p-4">Dosa, Sambar, Coconut Chutney, Tea/Coffee</td>
+            <td class="p-4">Rice, Dal, Egg Curry, Cabbage Thoran, Curd</td>
+            <td class="p-4">Chapati, Mixed Veg Curry, Rice, Pickle</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-4">Thursday</td>
+            <td class="p-4">Upma, Banana, Bread Toast, Tea/Coffee</td>
+            <td class="p-4">Rice, Sambar, Fish Fry, Carrot Thoran, Buttermilk</td>
+            <td class="p-4">Parotta, Egg Curry, Rice, Salad</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-4">Friday</td>
+            <td class="p-4">Puttu, Kadala Curry, Banana, Tea/Coffee</td>
+            <td class="p-4">Rice, Dal, Chicken Curry, Bean Thoran, Curd</td>
+            <td class="p-4">Chapati, Dal Fry, Rice, Pickle</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-4">Saturday</td>
+            <td class="p-4">Idiyappam, Egg Curry, Banana, Tea/Coffee</td>
+            <td class="p-4">Rice, Sambar, Fish Curry, Cabbage Thoran, Buttermilk</td>
+            <td class="p-4">Parotta, Chicken Curry, Rice, Salad</td>
+          </tr>
+          <tr>
+            <td class="p-4">Sunday</td>
+            <td class="p-4">Appam, Vegetable Stew, Banana, Tea/Coffee</td>
+            <td class="p-4">Rice, Dal, Paneer Curry, Mixed Veg, Curd</td>
+            <td class="p-4">Chapati, Mushroom Masala, Rice, Pickle</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </body>

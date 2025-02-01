@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.utils.html import format_html
 
 from customer.models import User
-from .models import Property, PropertyOwner, PropertyImage, Amenity, PGHostelProperty, FlatProperty
+from properties.models import Property, PropertyOwner, PropertyImage, Amenity, PGHostelProperty, FlatProperty, Mess, MessMenu, Review
 
 # Register your models here.
 
@@ -120,6 +120,77 @@ class FlatPropertyAdmin(admin.ModelAdmin):
 class AmenityAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
+    
+    
+class MessMenuInline(admin.TabularInline):
+    model = MessMenu
+    extra = 7  # Show all 7 days
+    max_num = 7
+    
+    # def get_initial(self):
+    #     # Pre-populate days of the week
+    #     return [{'day': day[0]} for day in MessMenu.DAYS_OF_WEEK]
+
+@admin.register(Mess)
+class MessAdmin(admin.ModelAdmin):
+    list_display = ('name', 'city', 'monthly_rate', 'meal_type', 'available')
+    list_filter = ('city', 'meal_type', 'available')
+    search_fields = ('name', 'description', 'address', 'city')
+    inlines = [MessMenuInline]
+
+    fieldsets = (
+        ('Basic Information', {
+            'fields': ('name', 'description', 'meal_type', 'contact_number', 'is_snacks_available')
+        }),
+        ('Location', {
+            'fields': ('address', 'city', 'latitude', 'longitude')
+        }),
+        ('Financial Details', {
+            'fields': ('monthly_rate', 'daily_rate')
+        }),
+        ('Timing Details', {
+            'fields': ('opening_time', 'closing_time')
+        }),
+        ('Status', {
+            'fields': ('available',)
+        })
+    )
+    
+    
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    # Display fields in list view
+    list_display = ('user', 'review_type', 'rating', 'created_at')
+    
+    # Filter options
+    list_filter = ('review_type', 'rating', 'created_at')
+    
+    # Search fields
+    search_fields = ('user__username', 'property__title', 'mess__name', 'description')
+    
+    # Make all fields readonly
+    def get_readonly_fields(self, request, obj=None):
+        if obj: # editing an existing object
+            return ('user', 'property', 'mess', 'rating', 'description', 'review_type', 'created_at', 'updated_at')
+        return ('created_at', 'updated_at')
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return True
+
+    # Organize fields in fieldsets
+    fieldsets = (
+        ('Review Details', {
+            'fields': ('user', 'property', 'mess', 'rating', 'description')
+        }),
+        ('Metadata', {
+            'fields': ('review_type', 'created_at', 'updated_at')
+        })
+    )
+
+
 
 # Custom admin site to modify the admin index
 class SearchifyAdminSite(admin.AdminSite):
@@ -140,3 +211,5 @@ admin_site.register(PropertyOwner, PropertyOwnerAdmin)
 admin_site.register(PGHostelProperty, PGHostelPropertyAdmin)
 admin_site.register(FlatProperty, FlatPropertyAdmin)
 admin_site.register(Amenity, AmenityAdmin)
+admin_site.register(Mess, MessAdmin)
+admin_site.register(Review, ReviewAdmin)
