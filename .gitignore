@@ -23,8 +23,6 @@ coverage/
 
 __pycache__/
 
-db.sqlite3
-
 # Property images
 property_images/
 
